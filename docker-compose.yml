@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"  # Node.js
+      # or use "8000:8000" for Python
+    volumes:
+      - ./backend:/app
