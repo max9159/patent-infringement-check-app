@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 const config = require('./config'); // Load configuration file
 const cors = require('cors');
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || config.OPENAI_API_KEY;
 
 app.use(cors());
 // Enable JSON body parsing
@@ -83,7 +84,7 @@ async function runInfringementCheck(patentID, company) {
 
     const response = await axios.post('https://api.openai.com/v1/chat/completions',
       requestBody, {
-      headers: { 'Authorization': `Bearer ${config.OPENAI_API_KEY}` }
+      headers: { 'Authorization': `Bearer ${OPENAI_API_KEY}` }
     });
     const parsingResponse = parseOpenAiApiResponse(response);
     return parsingResponse;
