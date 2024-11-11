@@ -1,0 +1,10 @@
+{
+  "name": "patent-infringement-check-api",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node backend/app/server.js"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
