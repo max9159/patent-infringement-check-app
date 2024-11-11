@@ -3,7 +3,7 @@ const fs = require('fs');
 const axios = require('axios');
 const app = express();
 const port = 3001;
-const config = require('./app/config'); // Load configuration file
+const config = require('./config'); // Load configuration file
 const cors = require('cors');
 
 app.use(cors());
