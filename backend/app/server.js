@@ -58,7 +58,7 @@ async function runInfringementCheck(patentID, company) {
     const promptTemplate = fs.readFileSync('./data/prompt_template.txt', 'utf8');
 
     // Find patent details
-    const patent = patentData.find(p => p.publication_number === patentID);
+    const patent = patentData.find(p => p.publication_number.toLowerCase() === patentID.toLowerCase());
     if (!patent) {
       return { error: 'Patent not found.' };
     }
