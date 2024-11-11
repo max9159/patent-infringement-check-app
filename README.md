@@ -1,11 +1,97 @@
 # Patent Infringement Check App
 
-## Setup
-- To be provided
+This repository contains a full-stack application for checking patent infringement against a company's products. The app features a backend built with Node.js and a frontend built using React.js. The application uses a language model API to determine potential patent infringements.
 
-## Usage
-- To be provided
+## Table of Contents
+1. [Installation](#installation)
+2. [User Manual](#user-manual)
+3. [System Architecture Diagram](#system-architecture-diagram)
+4. [Core Functionality](#core-functionality)
+5. [Project Development Plan](#project-development-plan)
 
+## Installation
+
+### Prerequisites
+- Docker and Docker Compose installed.
+- Node.js (if building locally without Docker).
+
+### Steps to Install and Run
+1. **Update the OpenAI API Key**:
+   - Open the [backend/app/config.js](/backend/app/config.js) file.
+   - Replace the value `your_openai_api_key_here` with your OpenAI API key.
+
+2. **Build and Run the Application Using Docker Compose**:
+   - Run the following command to build the backend and frontend services:
+     ```sh
+     docker-compose build
+     ```
+   - Start the application:
+     ```sh
+     docker-compose up
+     ```
+
+3. **Access the Application**:
+   - **Frontend**: Visit `http://localhost:3000` to access the application.
+   - **Backend**: API endpoints are available at `http://localhost:3001`.
+
+### Optional: Running Locally without Docker
+- Navigate to the `backend` and `frontend` directories and run `npm install` in both.
+- Start the backend:
+  ```sh
+  cd backend
+  npm start
+  ```
+- Start the frontend:
+  ```sh
+  cd frontend
+  npm start
+  ```
+
+## User Manual
+
+### Accessing the App
+- **Homepage**: When you first visit the homepage, you will see a form to enter a **Patent ID** and a **Company Name**.
+
+### Running an Infringement Check
+1. **Enter Patent ID**: Type in the patent ID you want to check.
+2. **Enter Company Name**: Type in the company name whose products you wish to analyze.
+3. **Submit the Form**: Click on the "Check Infringement" button.
+4. **View Results**: After submitting, the app will display the top two products that potentially infringe on the patent, including explanations, relevant claims, and infringement likelihood.
+
+## System Architecture Diagram
+
+The system architecture includes the following components:
+
+```
++------------------+         +-------------------+
+|                  |         |                   |
+|  React Frontend  +--------->  Node.js Backend  |
+|                  |         |                   |
++--------+---------+         +---------+---------+
+         |                           |
+         |                           v
+         |                  +-------------------+
+         |                  |  OpenAI API       |
+         v                  +-------------------+
++------------------+
+|                  |
+|  User's Browser  |
+|                  |
++------------------+
+```
+
+1. **React Frontend**: Provides a responsive user interface where users can input patent IDs and company names, and view results.
+2. **Node.js Backend**: Manages incoming requests, interacts with the local dataset, and uses OpenAI API for analysis.
+3. **OpenAI API**: Processes patent and product data to determine potential infringement and provides analysis.
+
+## Core Functionality
+1. **Input Patent ID and Company Name**: Users can input a patent ID and the name of a company whose products they want to check.
+2. **Run Patent Infringement Analysis**: The backend uses the patent details and company products to generate an infringement analysis via the OpenAI API.
+3. **Return Top Two Infringing Products**: The analysis identifies the top two products likely infringing on the patent and details which claims are at risk.
+4. **Dockerized Deployment**: Both frontend and backend are containerized using Docker, simplifying installation and deployment.
+
+Feel free to reach out for any questions!
+ 
 ## Project Development Plan
 
 ### Project Setup
