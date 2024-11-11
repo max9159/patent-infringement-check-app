@@ -107,6 +107,10 @@ function parseOpenAiApiResponse(response) {
     console.log(e);
     return { error: 'LLM Response Parsing Error. extractContent:' + extractContent}; 
   }
+  // Cannot exactly ask LLM to using current date, so we need to replace it with current date
+  parsingResponse.analysis_date = new Date().toISOString().slice(0, 10);
+  // Using currennt timestamp given analysisi_id by application
+  parsingResponse.analysis_id = new Date().getTime();
   return parsingResponse;
 }
 
