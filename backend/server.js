@@ -64,7 +64,7 @@ async function runInfringementCheck(patentID, company) {
 
     // Replace placeholders in prompt template
     const patentDetails = JSON.stringify(patent);
-    const companyProducts = JSON.stringify(company.products);
+    const companyProducts = JSON.stringify(company);
 
     const prompt = promptTemplate
       .replace('{PATENT_DETAILS}', patentDetails)
