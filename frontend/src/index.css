@@ -1,45 +1,117 @@
-/* src/styles.css */
-
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
   margin: 0;
   padding: 0;
 }
-
+h1,
+h3,
+h4 {
+  color: #6200ea;
+}
 .app {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 20px;
-  background: white;
+  background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header {
   text-align: center;
   margin-bottom: 20px;
+  color: #6200ea;
 }
 
 input[type="text"] {
   width: 100%;
-  padding: 8px;
-  margin: 5px 0;
+  padding: 10px;
+  margin: 10px 0;
   box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"] {
+  border-color: #6200ea;
+  outline: none;
 }
 
 button {
-  padding: 10px 15px;
-  background-color: #007bff;
+  padding: 10px 20px;
+  background-color: #6200ea;
   color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #0056b3;
+button {
+  background-color: #3700b3;
 }
 
-.result, .saved-reports {
+.error {
+  color: #d32f2f;
+  margin-top: 10px;
+}
+
+.analysis-result {
   margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-result h5 {
+  margin: 10px 0 5px;
+  color: #424242;
+}
+
+.product-analysis {
+  margin-bottom: 15px;
+}
+
+.product-card {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.product-card {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card h5 {
+  color: #6200ea;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  color: #424242;
+  margin: 5px 0;
+}
+
+.product-card ul {
+  margin: 10px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+  color: #424242;
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
 }
