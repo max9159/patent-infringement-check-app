@@ -100,7 +100,13 @@ function parseOpenAiApiResponse(response) {
   extractContent = extractContent.substring(8, extractContent.length);
   extractContent = extractContent.replace('```', '');
   console.log(`extractContent:${extractContent}`);
-  const parsingResponse = JSON.parse(extractContent);
+  let parsingResponse;
+  try {
+    parsingResponse = JSON.parse(extractContent);
+  } catch (e) {
+    console.log(e);
+    return { error: 'LLM Response Parsing Error. extractContent:' + extractContent}; 
+  }
   return parsingResponse;
 }
 
